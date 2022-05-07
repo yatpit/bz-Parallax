@@ -17,11 +17,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    --offset: 0px;
 }
 
-.image img{
+img{
     display: block;
     width: 110%;
     height: 100%;
     object-fit: cover;
+    transform: translatex(var(--offset));
+    filter: blur(var(--blur));
 }
