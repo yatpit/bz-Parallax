@@ -7,6 +7,18 @@ let x_offset = 0;
 let window_width = document.documentElement.clientWidth;
 
 
+let init = () => {
+    for(let [index, image] of images.entries()){
+        image.style.setProperty('--offset', `0px`);
+        image.style.setProperty('--blur', `${index}px`)
+        if(index==1) {
+            image.style.setProperty('--blur', `0px`)
+        }
+    }
+}
+
+init();
+
 banner.addEventListener('mouseover', (e)=>{
     x = e.clientX;
     // console.log(x);
@@ -29,11 +41,5 @@ banner.addEventListener('mousemove', (e)=>{
 })
 
 banner.addEventListener('mouseout', (e)=>{
-    for(let [index, image] of images.entries()){
-        image.style.setProperty('--offset', `0px`);
-        image.style.setProperty('--blur', `${index}px`)
-        if(index==1) {
-            image.style.setProperty('--blur', `0px`)
-        }
-    }
+    init()
 })
