@@ -3,28 +3,27 @@
     padding: 0;
 }
 
-.banner{
+.Banner{
     height: 180px;
     width: 100vw;
     position: relative;
     overflow: hidden;
 }
 
-.image{
+.Banner div{
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    --offset: 0px;
 }
 
-img{
+.Banner div img{
     display: block;
     width: 110%;
-    height: 100%;
+    height: 110%;
     object-fit: cover;
-    transform: translatex(var(--offset));
-    filter: blur(var(--blur));
+    transform: translate(var(--Xoffset),var(--Yoffset));
+    /* filter: blur(var(--blur)); */
 }

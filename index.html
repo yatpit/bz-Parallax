@@ -8,20 +8,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="banner">
-        <div class="image">
-            <img src="./images/background.png"></div>
-        <div class="image">
-            <img src="./images/girl-eye-open.png"></div>
-        <div class="image">
-            <img src="./images/hill.png"></div>
-        <div class="image">
-            <img src="./images/mushroom.png"></div>
-        <div class="image">
-            <img src="./images/fairy.png"></div>
-        <div class="image">
-            <img src="./images/leaf.png"></div>
+    <div class="Banner">
+        <div>
+            <img src="./images/background.png">
+        </div>
+        <div>
+            <img src="./images/girl-eye-open.png">
+        </div>
+        <div>
+            <img src="./images/hill.png">
+        </div>
+        <div>
+            <img src="./images/mushroom.png">
+        </div>
+        <div>
+            <img src="./images/fairy.png">
+        </div>
+        <div>
+            <img src="./images/leaf.png">
+        </div>
     </div>
-    <script src="scripts.js" type="text/javascript"></script>
+    <!-- <script type="text/javascript" src='scripts.js'></script> -->
+    <script type="module">
+        import Banner from '/script.js';
+        new Banner('.Banner');
+    </script>
 </body>
 </html>
