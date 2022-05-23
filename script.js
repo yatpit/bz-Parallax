@@ -17,7 +17,10 @@ class Banner{
         }
 
         this.init(option.type);
-        this.bindEvent(option.type);
+        // 设置speed初始值
+        if(option.speed === undefined){option.speed = 3}
+        this.bindEvent(option.type, option.speed);
+        console.log(option.speed)
     }
 
     addCSS(type){
@@ -54,10 +57,9 @@ class Banner{
         }
     }
 
-    bindEvent(type) {
+    bindEvent(type, setspeed) {
         let x, y, x_offset, y_offset;
         let offset, percentage, middleOpc;
-
         this.banner.addEventListener('mouseover', (e)=>{
             // 获取鼠标进入点
             if(type == 'type1'){
@@ -77,7 +79,7 @@ class Banner{
                 y_offset = e.clientY - y;
                 for(let [index, image] of this.images.entries()){
                     // console.log([index, image])
-                    let speed = (6 - index)*10;
+                    let speed = (6 - index)*3*setspeed;
                     let Xoffset = x_offset / speed;
                     let Yoffset = y_offset / speed;
                     image.style.setProperty('--Xoffset', `${Xoffset}px`);
@@ -88,14 +90,14 @@ class Banner{
             if(type == 'type2'){
                 offset = e.clientX - x;
                 // 实现位移：最前面一层不动，其他层滑动
-                for(let [index, img] of this.imgs.entries()){
-                    if(index != this.imgs.length-1) {
-                        img.style.setProperty('--offset', `${offset/30}px`);
-                    }
+                for(let img of this.imgs.values()){
+                    // if(index != this.imgs.length-1) {
+                    img.style.setProperty('--offset', `${offset/30}px`);
+                    // }
                 }
                 
                 // 实现
-                percentage = offset*1.5/document.body.clientWidth;
+                percentage = offset*setspeed/document.body.clientWidth;
                 middleOpc = 1-Math.abs(percentage);
                 if(offset<0){
                     this.left.style.setProperty('--opac', `${-percentage}`);
