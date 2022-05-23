@@ -3,12 +3,33 @@
     padding: 0;
 }
 
-.Banner {
+.wrapper {
     height: 180px;
     position: relative;
     overflow: hidden;
 }
 
+/* type1的样式 */
+.wrapper1 div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper1 div img{
+    display: block;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    transform: translate(var(--Xoffset),var(--Yoffset));
+    /* filter: blur(var(--blur)); */
+}
+
+
+/* type2的样式 */
 .left, .middle, .right {
     position: absolute;
     top: 0;
@@ -21,7 +42,7 @@
     opacity: var(--opac);
 }
 
-.Banner div img {
+.wrapper2 div img {
     position: absolute;
     display: block;
     width: 130%;

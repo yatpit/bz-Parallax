@@ -2,8 +2,9 @@ class Banner{
     constructor(selector, option) {
         // 选出最外层div
         this.banner = document.querySelector(`${selector}`);
+        // 引入css文件，动态添加类
+        this.addCSS(option.type)
 
-        // this.images = this.banner.querySelectorAll('div>img');
         if(option.type == 'type1'){
             this.images = this.banner.querySelectorAll('div>img');
         }
@@ -15,27 +16,26 @@ class Banner{
             this.right = this.banner.querySelector('.right');
         }
 
-        this.importCSS(option.type)
         this.init(option.type);
         this.bindEvent(option.type);
     }
 
-    importCSS(type){
-        // 引入不同的css文件
+    addCSS(type){
         let new_element = document.createElement('link');
         new_element.setAttribute('rel', 'stylesheet');
+        new_element.setAttribute('href', 'style.css');
+        document.body.appendChild(new_element);
+
+        this.banner.classList.add('wrapper');
         if(type == 'type1'){
-            new_element.setAttribute('href', 'style1.css');
+            this.banner.classList.add('wrapper1');
         }
         if(type == 'type2'){
-            new_element.setAttribute('href', 'style2.css');
+            this.banner.classList.add('wrapper2');
         }
-        document.body.appendChild(new_element);
     }
 
     init(type) {
-
-
         if(type == 'type1'){
             // css参数初始化
             for(let image of this.images.values()){
@@ -55,7 +55,6 @@ class Banner{
     }
 
     bindEvent(type) {
-
         let x, y, x_offset, y_offset;
         let offset, percentage, middleOpc;
 
