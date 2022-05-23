@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Banner{
+    height: 180px;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.Banner div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Banner div img{
+    display: block;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    transform: translate(var(--Xoffset),var(--Yoffset));
+    /* filter: blur(var(--blur)); */
+}

@@ -5,33 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bzParallax</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
+    <!-- <div class="Banner">
+        <div>
+            <img src="./images/banner1/background.png">
+        </div>
+        <div>
+            <img src="./images/banner1/girl-eye-open.png">
+        </div>
+        <div>
+            <img src="./images/banner1/hill.png">
+        </div>
+        <div>
+            <img src="./images/banner1/mushroom.png">
+        </div>
+        <div>
+            <img src="./images/banner1/fairy.png">
+        </div>
+        <div>
+            <img src="./images/banner1/leaf.png">
+        </div>
+    </div> -->
     <div class="Banner">
-        <div>
-            <img src="./images/background.png">
+        <div class="left">
+            <img src="./images/banner2/day.jpg">
+            <img src="./images/banner2/tree-day.png">
         </div>
-        <div>
-            <img src="./images/girl-eye-open.png">
+        <div class="middle">
+            <img src="./images/banner2/sunset.jpg">
+            <img src="./images/banner2/tree-sunset.png">
         </div>
-        <div>
-            <img src="./images/hill.png">
-        </div>
-        <div>
-            <img src="./images/mushroom.png">
-        </div>
-        <div>
-            <img src="./images/fairy.png">
-        </div>
-        <div>
-            <img src="./images/leaf.png">
+        <div class="right">
+            <img src="./images/banner2/night.png">
+            <img src="./images/banner2/fog.png">
+            <img src="./images/banner2/tree-night.png">
         </div>
     </div>
-    <!-- <script type="text/javascript" src='scripts.js'></script> -->
     <script type="module">
-        import Banner from '/scripts.js';
-        new Banner('.Banner');
+        import Banner from '/script.js';
+        // new Banner('.Banner',{
+        //     type:'type1'
+        // });
+        new Banner('.Banner',{
+            type:'type2'
+        });
     </script>
 </body>
 </html>
