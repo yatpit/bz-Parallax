@@ -1,120 +1,36 @@
+import {addCSS1,init1,bindEvent1} from '/paraOne.js'
+import {addCSS2,init2,bindEvent2} from '/paraTwo.js'
+
 class Banner{
     constructor(selector, option) {
         // 选出最外层div
         this.banner = document.querySelector(`${selector}`);
         // 引入css文件，动态添加类
-        this.addCSS(option.type)
+        // this.addCSS(option.type)
+        // 设置speed初始值
+        if(option.speed === undefined){option.speed = 3}
 
-        if(option.type == 'type1'){
+        if(option.type == 'paraOne'){
+            // 引入css文件，为banner动态添加类名
+            addCSS1(this.banner);
+
             this.images = this.banner.querySelectorAll('div>img');
+
+            init1(this.images);
+            bindEvent1(this.banner, this.images, option.speed);
         }
 
-        if(option.type == 'type2'){
+        if(option.type == 'paraTwo'){
+            addCSS2(this.banner);
+
             this.imgs = this.banner.querySelectorAll('div>img');
             this.left = this.banner.querySelector('.left');
             this.middle = this.banner.querySelector('.middle');
             this.right = this.banner.querySelector('.right');
+
+            init2(this.imgs, this.left, this.middle, this.right);
+            bindEvent2(this.banner, this.imgs, this.left, this.middle, this.right, option.speed);
         }
-
-        this.init(option.type);
-        // 设置speed初始值
-        if(option.speed === undefined){option.speed = 3}
-        this.bindEvent(option.type, option.speed);
-        console.log(option.speed)
-    }
-
-    addCSS(type){
-        let new_element = document.createElement('link');
-        new_element.setAttribute('rel', 'stylesheet');
-        new_element.setAttribute('href', 'style.css');
-        document.body.appendChild(new_element);
-
-        this.banner.classList.add('wrapper');
-        if(type == 'type1'){
-            this.banner.classList.add('wrapper1');
-        }
-        if(type == 'type2'){
-            this.banner.classList.add('wrapper2');
-        }
-    }
-
-    init(type) {
-        if(type == 'type1'){
-            // css参数初始化
-            for(let image of this.images.values()){
-                image.style.setProperty('--Xoffset', `0px`);
-                image.style.setProperty('--Yoffset', `0px`);
-            }
-        }
-        if(type == 'type2'){
-            // css参数初始化
-            for(let i of this.imgs.values()){
-                i.style.setProperty('--offset', `0px`);
-            }
-            this.left.style.setProperty('--opac', 0);
-            this.middle.style.setProperty('--opac',1);
-            this.right.style.setProperty('--opac', 0)
-        }
-    }
-
-    bindEvent(type, setspeed) {
-        let x, y, x_offset, y_offset;
-        let offset, percentage, middleOpc;
-        this.banner.addEventListener('mouseover', (e)=>{
-            // 获取鼠标进入点
-            if(type == 'type1'){
-                x = e.clientX;
-                y = e.clientY;
-            }
-            if(type == 'type2'){
-                x = e.clientX;
-            }
-        })
-
-        this.banner.addEventListener('mousemove', (e)=>{
-
-            if(type == 'type1'){
-                // 实现位移
-                x_offset = e.clientX - x; 
-                y_offset = e.clientY - y;
-                for(let [index, image] of this.images.entries()){
-                    // console.log([index, image])
-                    let speed = (6 - index)*3*setspeed;
-                    let Xoffset = x_offset / speed;
-                    let Yoffset = y_offset / speed;
-                    image.style.setProperty('--Xoffset', `${Xoffset}px`);
-                    image.style.setProperty('--Yoffset', `${Yoffset}px`);
-                }
-            }
-
-            if(type == 'type2'){
-                offset = e.clientX - x;
-                // 实现位移：最前面一层不动，其他层滑动
-                for(let img of this.imgs.values()){
-                    // if(index != this.imgs.length-1) {
-                    img.style.setProperty('--offset', `${offset/30}px`);
-                    // }
-                }
-                
-                // 实现
-                percentage = offset*setspeed/document.body.clientWidth;
-                middleOpc = 1-Math.abs(percentage);
-                if(offset<0){
-                    this.left.style.setProperty('--opac', `${-percentage}`);
-                    this.middle.style.setProperty('--opac',`${middleOpc}`);
-                    this.right.style.setProperty('--opac',0);
-                }else{
-                    this.left.style.setProperty('--opac', 0);
-                    this.middle.style.setProperty('--opac',`${middleOpc}`);
-                    this.right.style.setProperty('--opac',`${percentage}`);
-                }
-            }
-        })
-
-        this.banner.addEventListener('mouseout', (e)=>{
-            this.init(type)
-        })
-
     }
 }
 export default Banner;
