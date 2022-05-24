@@ -9,9 +9,11 @@ class Banner{
         // 设置speed初始值
         if(option.speed === undefined){option.speed = 3}
 
+        this.addCSS();
+
         if(option.type == 'Slide'){
             // 引入css文件，为banner动态添加类名
-            this.addCSS(1);
+            this.addClass(1);
 
             this.images = this.banner.querySelectorAll('div>img');
 
@@ -20,7 +22,7 @@ class Banner{
         }
 
         if(option.type == 'Transfer'){
-            this.addCSS(2);
+            this.addClass(2);
 
             this.imgs = this.banner.querySelectorAll('div>img');
             this.left = this.banner.querySelector('.left');
@@ -37,12 +39,19 @@ class Banner{
         }
     }
 
-    // 添加CSS文件，以及banner添加新的class
-    addCSS(num){
-        let new_element = document.createElement('link');
-        new_element.setAttribute('rel', 'stylesheet');
-        new_element.setAttribute('href', 'style.css');
-        document.body.appendChild(new_element);
+    // 添加CSS文件
+    addCSS(){
+        if(!document.getElementById('parallax')){
+            let new_element = document.createElement('link');
+            new_element.setAttribute('rel', 'stylesheet');
+            new_element.setAttribute('href', 'style.css');
+            new_element.setAttribute('id', 'parallax');
+            document.body.appendChild(new_element);
+        }
+    }
+
+    //给banner添加新的class
+    addClass(num){
         this.banner.classList.add('wrapper');
         this.banner.classList.add(`wrapper${num}`);
     }
