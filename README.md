@@ -31,9 +31,9 @@ Giving the following HTML:
         <div>
             <img src="background.png">
         </div>
-		<div>
+	<div>
             <img src='...'>
-		</div>
+	</div>
 </div>
 ```
 
