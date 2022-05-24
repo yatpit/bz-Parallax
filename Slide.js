@@ -1,13 +1,3 @@
-// 添加CSS文件，以及banner添加新的class
-function addCSS1(banner){
-    let new_element = document.createElement('link');
-    new_element.setAttribute('rel', 'stylesheet');
-    new_element.setAttribute('href', 'style.css');
-    document.body.appendChild(new_element);
-    banner.classList.add('wrapper');
-    banner.classList.add('wrapper1');
-}
-
 function init1(images){
     for(let image of images.values()){
         image.style.setProperty('--Xoffset', `0px`);
@@ -41,4 +31,4 @@ function bindEvent1(banner, images, setspeed){
     })
 }
 
-export {addCSS1, init1, bindEvent1}
+export {init1, bindEvent1}
