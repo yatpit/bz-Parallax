@@ -13,7 +13,7 @@ class Banner{
 
         if(option.type == 'Slide'){
             // 引入css文件，为banner动态添加类名
-            this.addClass(1);
+            this.addClass('wrapper1');
 
             this.images = this.banner.querySelectorAll('div>img');
 
@@ -22,7 +22,7 @@ class Banner{
         }
 
         if(option.type == 'Transfer'){
-            this.addClass(2);
+            this.addClass('wrapper2');
 
             this.imgs = this.banner.querySelectorAll('div>img');
             this.left = this.banner.querySelector('.left');
@@ -51,9 +51,9 @@ class Banner{
     }
 
     //给banner添加新的class
-    addClass(num){
+    addClass(name){
         this.banner.classList.add('wrapper');
-        this.banner.classList.add(`wrapper${num}`);
+        this.banner.classList.add(name);
     }
 }
 export default Banner;
