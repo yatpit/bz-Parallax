@@ -9,7 +9,7 @@
 You can install it via npm:
 
 ```js
-npm install bz-parallax
+npm i bz-parallax
 ```
 
 and then import it as follows:
