@@ -4,7 +4,7 @@
 
 
 
-### Installation
+## Installation
 
 You can install it via npm:
 
@@ -20,79 +20,78 @@ import Banner from '/script.js';
 
 
 
-### Example
+## Example
 
-- Using effect: **Slide**
+1）Using effect: **Slide**
 
-  Giving the following HTML:
+Giving the following HTML:
 
-  ```js
-  <div class="Banner1">
-          <div>
-              <img src="background.png">
-          </div>
-  		<div>
-              <img src='...'>
-  		</div>
-  </div>
-  ```
+```js
+<div class="Banner1">
+        <div>
+            <img src="background.png">
+        </div>
+		<div>
+            <img src='...'>
+		</div>
+</div>
+```
 
-  simply add the following JavaScript code:
+simply add the following JavaScript code:
 
-  ```js
-  new Banner('.Banner1',{
-      type: 'Slide',
-      speed: 4       //If speed is not set, the default value is 3
-  });
-  ```
+```js
+new Banner('.Banner1',{
+    type: 'Slide',
+    speed: 4       //If speed is not set, the default value is 3
+});
+```
 
-  #### Setting
+#### Setting
 
-  | Setting | Type   | Default | Hint                                                         |
-  | ------- | ------ | ------- | ------------------------------------------------------------ |
-  | speed   | Number | 3       | need to be above 1 ( The higher the speed is set, the slower the images will move. ) |
+| Setting | Type   | Default | Hint                                                         |
+| ------- | ------ | ------- | ------------------------------------------------------------ |
+| speed   | Number | 3       | need to be above 1 ( The higher the speed is set, the slower the images will move. ) |
 
-  
 
-- Using effect: **Transfer**
 
-  Giving the following HTML:
+2）Using effect: **Transfer**
 
-  ```js
-  <div class="Banner2">
-          <div class="left">
-              <img src="day.jpg">
-              <img src='...'>
-                    ...
-          </div>
-          <div class="middle">
-              <img src="sunset.jpg">
-              <img src='...'>
-                    ...
-          </div>
-          <div class="right">
-              <img src="night.png">
-              <img src='...'>
-                    ...
-          </div>
-  </div>
-  ```
+Giving the following HTML:
 
-  simply add the following JavaScript code:
+```js
+<div class="Banner2">
+        <div class="left">
+            <img src="day.jpg">
+            <img src='...'>
+                  ...
+        </div>
+        <div class="middle">
+            <img src="sunset.jpg">
+            <img src='...'>
+                  ...
+        </div>
+        <div class="right">
+            <img src="night.png">
+            <img src='...'>
+                  ...
+        </div>
+</div>
+```
 
-  ```js
-  new Banner('.Banner1',{
-      type: 'Transfer',
-      speed: 4       //If speed is not set, the default value is 3
-  });
-  ```
+simply add the following JavaScript code:
 
-  #### Setting
+```js
+new Banner('.Banner1',{
+    type: 'Transfer',
+    speed: 4       //If speed is not set, the default value is 3
+});
+```
 
-  | Setting | Type   | Default | Hint                                                         |
-  | ------- | ------ | ------- | ------------------------------------------------------------ |
-  | speed   | Number | 3       | need to be above 1 ( The higher the speed is set, the faseter the images will transform. ) |
+#### Setting
 
+| Setting | Type   | Default | Hint                                                         |
+| ------- | ------ | ------- | ------------------------------------------------------------ |
+| speed   | Number | 3       | need to be above 1 ( The higher the speed is set, the faseter the images will transform. ) |
 
 
 
