@@ -1,6 +1,6 @@
 # bz-Parallax
 
-基于bilibili首页banner实现的JS组件库
+基于bilibili首页banner实现的视觉差组件库
 
 
 
